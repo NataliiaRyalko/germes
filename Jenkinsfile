@@ -1,7 +1,7 @@
 pipeline {
   agent any
   stages {
-
+    
     stage('unit test') {
       steps {
         withEnv(["PATH+EXTRA=/usr/local/bin"]) {
@@ -12,7 +12,7 @@ pipeline {
 
     stage('integration test') {
       steps {
-        sh 'echo \'Integration tests are running\''
+        sh 'echo \'Integration tests are . running\''
       }
     }
 
