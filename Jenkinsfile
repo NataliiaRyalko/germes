@@ -11,7 +11,7 @@ pipeline {
     }
     stage('integration test') {
       steps {
-        sh 'echo \'Integration tests are running\''
+        sh 'echo \'Integration test is running\''
       }
     }
     stage('UI tests') {
