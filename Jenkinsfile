@@ -1,20 +1,24 @@
 pipeline {
   agent any
   stages {
-    stage('unit') {
+
+    stage('unit test') {
       steps {
-        sh 'mvn clean test'
-        sh 'mvn clean test'
+        withEnv(["PATH+EXTRA=/usr/local/bin"]) {
+          sh 'mvn clean test'
+        }
       }
     }
-    stage('integration') {
+
+    stage('integration test') {
       steps {
-        sh 'echo integration test'
+        sh 'echo \'Integration tests are running\''
       }
     }
-    stage('ui test') {
+
+    stage('UI tests') {
       steps {
-        build(job: 'SmokeUiTest', propagate: true, wait: true)
+        build(job: 'Smoke_UI_Test', propagate: true, wait: true)
       }
     }
   }
